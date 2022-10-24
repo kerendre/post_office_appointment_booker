@@ -1,9 +1,9 @@
 # post_office_appointment_booker
 simplify the post office appointment booking process  
 
-This program's purpose is to help the older generation, olim and mainly my Mother to navigate the appointment_booking process
+This program's purpose is to help the older generation, olim, and especially my Mother to navigate the appointment_booking process
 
-The setting of the program is usually would be performed by somebody that is not the primary user.
+The setting of the program will primarily be set by an individual assisting the main user. is usually would be performed by somebody that is not the primary user.
 
 variables setting :
 
