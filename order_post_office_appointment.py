@@ -10,7 +10,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.action_chains import ActionChains
 
-zeut_number =  ZEUT_NUMBER
+zeut_number = ZEUT_NUMBER
 phone_number = PHONE_NUMBER
 
 # If you don't know the id number of the post office branch, you can check it here,
@@ -29,34 +29,34 @@ driver.get(url)
 
 # next 2 lines wait until the element is available or 5 sec or until get appointment is clickable.
 # and then wait for 1 sec before clicking on it ( to avoid being mark as a bot.
-wait = WebDriverWait(driver, 😎
+wait = WebDriverWait(driver, 8)
 get_appointment = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '.btn.btn-primary.apptButton')))
 time.sleep(1)
 
 # get_appointment.send_keys(Keys.ENTER)
 ActionChains(driver).move_to_element(get_appointment).click(on_element=get_appointment).perform()
 
-# ~~~~~~~~~~~~~next window- stage 1~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~next window- stage 1~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Choose the service type ( there is only one option)
-# wait for up to 5  seconds for an element matching the given criteria to be found and beeing clickble
+# wait for up to 5  seconds for an element matching the given criteria to be found and the button is clickable
 wait = WebDriverWait(driver, 10)
 time.sleep(1.2)
 
 # here there is difference between post office id=325 and id 705
-choose_service_type = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR , ".serviceIcon1")))
+choose_service_type = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".serviceIcon1")))
 ActionChains(driver).move_to_element(get_appointment).click(on_element=choose_service_type).perform()
 time.sleep(1)
 continue_to_next_page = driver.find_element(By.CSS_SELECTOR, ".btn-ok.pull-left.btn-primary.btn")
 ActionChains(driver).move_to_element(continue_to_next_page).click(on_element=continue_to_next_page).perform()
 
-# ~~~~~~~~~~~~~next window- stage 2- done manualy  ~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~next window- stage 2- done manualy  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 '''This part it done manually by the main user '''
 
-# ~~~~~~~~~~~~~~~~next page- 3rd stage~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~next page- 3rd stage~~~~~~~~~~~~~~~~~~~~~~~
 
 # we are continued to the 3rd step of the process
 # wait until the element is clickable or 90 seconds (time to fill the appointment time)
-telephone_number1=WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'userTelephone')))
+telephone_number1 = WebDriverWait(driver, 90).until(EC.element_to_be_clickable((By.ID, 'userTelephone')))
 ActionChains(driver).move_to_element(telephone_number1).click().send_keys(phone_number).perform()
 
 time.sleep(1)
